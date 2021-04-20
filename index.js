@@ -64,49 +64,24 @@ const onRecipeSelect = async recipe => {
 
     document.querySelector('#summary').innerHTML =
     `
-    <div class="columns">
-        <div class="column">
-            First column
-        </div>
-        <div class="column">
-            Second column
-        </div>
-        <div class="column">
-            Third column
-        </div>
-        <div class="column">
-            Fourth column
-        </div>
-    </div>
-    <article class="media">
-        <figure class="media-left">
-           
-            <img class="image" src="${response.data.image}" />
-            
-        </figure>
-        
-    </article>
-    <div class="media-content">
-            <div class="content">
-                <h1>${response.data.title}</h1>
-                <p>${response.data.summary}</p>
-            </div>
-    </div>
-    <article class="notification is-primary">
+    <div class="img">
         <div>
-        <p class="title">Ingredients</p>
-        <ul></ul>
+            <h1 class="title">${response.data.title}</h1>
+            <img src="${response.data.image}" alt="Placeholder image">
         </div>
         <div>
-        <p class="title">Instructions</p>
+            <h1 class="title">Ingredients:</h1>
+            <ul></ul>
+        </div>     
+    </div>
+    <div class="summary">
+        <p>${response.data.summary}</p>
+    </div>
+    <div>
+        <h1 class="title">Instructions</h1>
         <p>${response.data.instructions}</p>
-        </div>
-    </article>
-    <article class="notification is-primary">
-        
-    </article>
+    </div>
     `
-
     const ul = document.querySelector('ul');
     for (let ingredient of response.data.extendedIngredients) {
         const ingredients = document.createElement('li');
